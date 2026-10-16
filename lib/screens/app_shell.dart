@@ -92,7 +92,7 @@ class CommunitySplash extends StatelessWidget {
       backgroundColor: AppTheme.ink,
       body: Center(
         child: Column(mainAxisSize: MainAxisSize.min, children: [
-          const _BridgeMark(size: 92),
+          const _BridgeMark(size: 132),
           const SizedBox(height: 26),
           const Text('ApPonte', style: TextStyle(color: Colors.white, fontSize: 38, fontWeight: FontWeight.w700, letterSpacing: -1.5)),
           const SizedBox(height: 8),
@@ -109,7 +109,7 @@ class _BrandLockup extends StatelessWidget {
   const _BrandLockup();
   @override
   Widget build(BuildContext context) => Row(children: [
-    const _BridgeMark(size: 38), const SizedBox(width: 10),
+    const _BridgeMark(size: 48), const SizedBox(width: 10),
     Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
       const Text('ApPonte', style: TextStyle(fontWeight: FontWeight.w800, fontSize: 18, height: 1.1)),
       Text('QUARTIERE PONTE', style: TextStyle(fontSize: 8, letterSpacing: 1.4, color: Theme.of(context).colorScheme.onSurfaceVariant)),
@@ -121,10 +121,9 @@ class _BridgeMark extends StatelessWidget {
   const _BridgeMark({required this.size});
   final double size;
   @override
-  Widget build(BuildContext context) => Container(
-    width: size, height: size,
-    decoration: BoxDecoration(color: AppTheme.softRed, borderRadius: BorderRadius.circular(size * .31)),
-    child: Icon(Icons.architecture_rounded, size: size * .58, color: AppTheme.ink),
+  Widget build(BuildContext context) => Image.asset(
+    'assets/ponte_logo.png', width: size, height: size, fit: BoxFit.contain,
+    filterQuality: FilterQuality.high,
   );
 }
 
