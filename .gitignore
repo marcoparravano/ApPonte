@@ -24,3 +24,5 @@
 *.jks
 *.keystore
 key.properties
+# Widget Preview related
+.widget_preview/
