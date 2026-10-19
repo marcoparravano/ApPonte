@@ -5,6 +5,8 @@ class AppTheme {
   static const red = Color(0xFFAD240A);
   static const softRed = Color(0xFFF4D3CC);
   static const coral = Color(0xFFE17B5B);
+  static const lightYellow = Color(0xFFFFF8D9);
+  static const lightRed = Color(0xFFB85C5C);
 
   static ThemeData get light => _build(Brightness.light);
   static ThemeData get dark => _build(Brightness.dark);
@@ -12,18 +14,19 @@ class AppTheme {
   static ThemeData _build(Brightness brightness) {
     final isDark = brightness == Brightness.dark;
     final scheme = ColorScheme.fromSeed(
-      seedColor: red,
+      seedColor: isDark ? red : lightRed,
       brightness: brightness,
-      surface: isDark ? const Color(0xFF1B1312) : const Color(0xFFFAF9F4),
+      surface: isDark ? const Color(0xFF1B1312) : lightYellow,
+      onSurface: isDark ? const Color(0xFFF3F5ED) : lightRed,
     );
     return ThemeData(
       useMaterial3: true,
       colorScheme: scheme,
-      scaffoldBackgroundColor: isDark ? const Color(0xFF1B1110) : const Color(0xFFFAF9F4),
+      scaffoldBackgroundColor: isDark ? const Color(0xFF1B1110) : lightYellow,
       fontFamily: 'Roboto',
       appBarTheme: const AppBarTheme(centerTitle: false, elevation: 0),
       cardTheme: CardThemeData(
-        color: isDark ? const Color(0xFF2A1916) : Colors.white,
+        color: isDark ? const Color(0xFF2A1916) : const Color(0xFFFFFDF1),
         elevation: 0,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(22)),
         margin: EdgeInsets.zero,
